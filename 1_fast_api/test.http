@@ -1,0 +1,17 @@
+###
+GET http://localhost:8000/
+
+###
+GET http://localhost:8000/image
+
+###
+GET http://localhost:8000/image/base64
+
+###
+POST http://localhost:8000/user
+Content-Type: application/json
+
+{
+    "user_id": "Karina",
+    "age": 23
+}
