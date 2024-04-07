@@ -1,0 +1,12 @@
+###
+GET http://localhost:8000/
+
+###
+GET http://localhost:8000/sync
+
+###
+GET http://localhost:8000/async
+
+###
+GET http://localhost:8000/async/state
+
