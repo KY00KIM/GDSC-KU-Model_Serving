@@ -14,7 +14,9 @@ async def worker():
         request_id, future, request_data = await request_queue.get()
         current_datetime = datetime.now().strftime("%H:%M:%S.%f")
         print(f"Processing: {request_id} at {current_datetime}")
+
         await sleep(4)  # Simulate async I/O operation
+
         current_datetime = datetime.now().strftime("%H:%M:%S.%f")
         print(f"Done: {request_id} at {current_datetime}")
         result = {"processed_data": request_data, "timestamp": current_datetime}
@@ -22,8 +24,9 @@ async def worker():
         request_queue.task_done()
     print("Worker shutdown gracefully.")
 
-def startup_event():
+def on_startup():
     global workers
+    # Load model
     for _ in range(CONCURRENT_LIMIT):
         task = create_task(worker())
         workers.append(task)
@@ -39,7 +42,7 @@ async def on_shutdown():
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    startup_event()
+    on_startup()
     yield
     await on_shutdown()
 
