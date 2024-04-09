@@ -8,7 +8,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-IMAGE_PATH = "./1_fast_api/image.png"
+IMAGE_PATH = "./2_fast_api/image.png"
 
 # 1. Health check
 @app.get("/")
