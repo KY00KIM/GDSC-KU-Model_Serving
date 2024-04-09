@@ -3,14 +3,14 @@ GET http://localhost:8000/
 
 ###
 POST http://localhost:8000/inference
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
 
-------WebKitFormBoundary7MA4YWxkTrZu0gW
+------WebKitFormBoundary
 Content-Disposition: form-data; name="file"; filename="testtt.png"
 Content-Type: image/png
 
 < ./4_model_server/image.png
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
+------WebKitFormBoundary
 
 ###
 POST http://localhost:8000/inference/base64
