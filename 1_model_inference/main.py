@@ -1,6 +1,7 @@
 from ultralytics import YOLO
 from PIL import Image
 import time
+import torch 
 
 IMAGE_PATH = "./1_model_inference/image.png"
 SAVE_PATH = "./1_model_inference/result"
@@ -39,6 +40,9 @@ def main():
 
         # Inference GPU
         elif opt == "b":
+            if not torch.cuda.is_available():
+                print("CUDA is not available.")
+                continue
             model.to("cuda")
             start = time.time()
             inference(model, image)
